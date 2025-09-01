@@ -1,0 +1,14 @@
+[
+  {
+    "title": "School Reopens",
+    "content": "The school will reopen on Monday.",
+    "date": "2025-08-01",
+    "image": "/static/images/thumb-1920-1218905.png"
+  },
+  {
+    "title": "Exam Schedule",
+    "content": "Exams will begin next week.",
+    "date": "2025-08-05",
+    "image": "/static/images/thumb-1920-1218905.png"
+  }
+]

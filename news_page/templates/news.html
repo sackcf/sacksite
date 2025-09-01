@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>SACK - NEWS</title>
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latest News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; }
+        header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+        header a { text-decoration:none; color:#0066cc; }
+    </style>
+    <link rel="icon" href="{{ url_for('static', filename='images/thumb-1920-1218905.png') }}" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script defer src="{{ url_for('static', filename='js/script2.js') }}"></script>
+    <script>
+        // In case the static asset cache is stubborn in dev
+        window.__NEWS_CACHE_BUSTER__ = Date.now();
+    </script>
+    </head>
 <body>
+    <header>
+        <h1>Latest News</h1>
+        <a href="{{ url_for('admin_page') }}">Add News</a>
+    </header>
 
-    <script src="./script.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <div id="news-area" class="news-container">
+        <!-- Populated by script2.js using /news endpoint -->
+    </div>
 </body>
 </html>
