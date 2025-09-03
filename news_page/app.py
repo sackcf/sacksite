@@ -1,9 +1,13 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for, abort
+from flask import Flask, jsonify, render_template, request, redirect, url_for, abort, session
 import json
 import os
 from datetime import datetime
 
+# Minimal Flask app for a news page with a tiny admin panel.
+# Auth is simple: username/password from auth.json (fallback to admin/admin).
+
 app = Flask(__name__)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "dev-secret-change-me")
 
 @app.route("/")
 def home():
@@ -12,6 +16,29 @@ def home():
 
 def _news_json_path() -> str:
     return os.path.join(app.root_path, "news_data", "news.json")
+
+
+def _auth_json_path() -> str:
+    return os.path.join(app.root_path, "news_data", "auth.json")
+
+
+def _load_auth() -> dict:
+    """Return {'username', 'password'} from auth.json or defaults."""
+    path = _auth_json_path()
+    try:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and data.get("username") and data.get("password"):
+                    return {"username": str(data["username"]), "password": str(data["password"])}
+    except Exception:
+        # Fall through to defaults
+        pass
+    return {"username": "admin", "password": "admin"}
+
+
+def _login_required():
+    return bool(session.get("user"))
 
 
 def _load_news() -> list:
@@ -37,16 +64,14 @@ def _save_news(items: list) -> None:
 
 @app.route("/news", methods=["GET"]) 
 def get_news():
-    # Return news sorted by date (newest first) when possible
+    # Return news sorted by date (YYYY-MM-DD newest first)
     items = _load_news()
     def parse_date(item):
         d = item.get("date", "")
-        for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%d-%m-%Y"):
-            try:
-                return datetime.strptime(d, fmt)
-            except Exception:
-                continue
-        return datetime.min
+        try:
+            return datetime.strptime(d, "%Y-%m-%d")
+        except Exception:
+            return datetime.min
     items_sorted = sorted(items, key=parse_date, reverse=True)
     return jsonify(items_sorted)
 
@@ -54,23 +79,20 @@ def get_news():
 @app.route("/admin", methods=["GET"]) 
 def admin_page():
     # Simple form to add a news item
+    if not _login_required():
+        return redirect(url_for("login"))
     return render_template("admin.html")
 
 
 @app.route("/news", methods=["POST"]) 
 def add_news():
-    # Accept form or JSON body to append a single news item
-    if request.is_json:
-        payload = request.get_json(silent=True) or {}
-        title = payload.get("title", "").strip()
-        content = payload.get("content", "").strip()
-        date_str = (payload.get("date") or "").strip()
-        image = (payload.get("image") or "").strip()
-    else:
-        title = request.form.get("title", "").strip()
-        content = request.form.get("content", "").strip()
-        date_str = request.form.get("date", "").strip()
-        image = request.form.get("image", "").strip()
+    # Accept form submission to append a single news item
+    if not _login_required():
+        abort(401, "Unauthorized")
+    title = (request.form.get("title") or "").strip()
+    content = (request.form.get("content") or "").strip()
+    date_str = (request.form.get("date") or "").strip()
+    image = (request.form.get("image") or "").strip()
 
     if not title or not content:
         abort(400, "Missing required fields: title and content")
@@ -88,9 +110,30 @@ def add_news():
     })
     _save_news(items)
 
-    # Redirect back to home for form posts; return JSON when posted as JSON
-    if request.is_json:
-        return jsonify({"status": "ok"})
+    # Redirect back to home after adding
+    return redirect(url_for("home"))
+
+
+@app.route("/login", methods=["GET", "POST"]) 
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+
+    # POST: attempt login from simple form
+    username = (request.form.get("username") or "").strip()
+    password = (request.form.get("password") or "").strip()
+
+    creds = _load_auth()
+    if username == creds.get("username") and password == creds.get("password"):
+        session["user"] = username
+        return redirect(url_for("admin_page"))
+
+    return render_template("login.html", error="Invalid username or password")
+
+
+@app.route("/logout", methods=["GET"]) 
+def logout():
+    session.clear()
     return redirect(url_for("home"))
 
 if __name__ == "__main__":
