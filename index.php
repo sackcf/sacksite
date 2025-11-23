@@ -173,9 +173,9 @@
         </div>
 </div>
   <div class="header">
-    <img class="header-img" src="assets/img/sackbg.jpg" alt="">
+    <img class="header-img" src="assets/img/img-up-2.png" alt="">
   <div class="header-overlay">
-    <h1 class="header-title">St. Anthony's College Kandy</h1>
+    <h2 class="header-title text-uppercase">St. Anthony's College Kandy</h2>
     <p class="header-subtitle">Since 1854</p>
     <a href="history.html" class="header-btn">Our History</a>
   </div>
@@ -197,10 +197,11 @@
       </div>
     </div>
   </div>
+  <hr class="hr">
 </div>
 <section class="latest-news-section">
-  <div class="container my-5">
-    <h2 class="text-center mb-4 text-white">Latest News</h2>
+  <div class="container  my-5">
+    <h2 class="text-center mb-4 news-text ">Latest News</h2>
     
     <div class="carousel-container-wrapper d-flex justify-content-between align-items-center">
       
@@ -220,7 +221,7 @@
     </div>
 
     <div class="text-center mt-4">
-      <a href="view_news.php" class="btn btn-primary">More News</a>
+      <a href="view_news.php" class="btn btn-primary more-news">More News</a>
     </div>
   </div>
 </section>

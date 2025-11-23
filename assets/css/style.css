@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -6,9 +9,9 @@
 }
 
 body {
-  font-family: "Michroma", sans-serif;
+  font-family:  "Montserrat", sans-serif;
   height: 100vh;
-  background-color: #000000 !important;
+  background-color: #fff !important;
 }
 
 
@@ -63,31 +66,28 @@ body {
 }
 
 .navbar{
-   
-    -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(12px);
-    width: 90%;
+
+    width: 97%;
+    background-color: #ffffff !important;
     position: fixed !important;
-    top: 10px;
     z-index: 10;
-    margin-top: 20px;
-    border-radius: 25px;
-    box-shadow:5px 5px 30px #000000;
-    padding: 10px;
-    opacity: 0;
+    box-shadow:3px 3px 50px #00000096;
     visibility: hidden;
     border: solid 1px rgba(255, 255, 255, 0.239);
+    margin-top: 10px;
+    border-radius: 40px;
+    padding-left: 30px !important;
 }
 @keyframes nav-load{
     0%{
-      opacity: 0;
+    
       visibility: hidden;
         width: 0%;
     }
     100%{
-      opacity: 1;
+      
       visibility: visible;
-        width: 80%;
+        width: 97%;
     }
 }
 .nav{
@@ -95,10 +95,11 @@ body {
     justify-content: center;
 }
 .navbar-nav li a , .navbar-brand{
-    color: #ffffff !important ;
-    font-weight: 700;
+    color: #000000 !important ;
+    font-weight: 400;
     font-size: 20px;
     animation: li-load 5s ;
+    font-family:  "Montserrat", sans-serif;
 }
 .nav-item{
     padding-right: 20px;
@@ -112,7 +113,7 @@ body {
     color: #ffffff;
 }
 .fa-solid{
-    color: #ffffff;
+    color: rgb(11, 0, 41);
 }
 
 #navbarNavDropdown{
@@ -123,16 +124,17 @@ footer.footer{
   left: 0;
   width: 100%;
   bottom: 0;
-  background-color: #000000 !important;
-  color: white !important;
+  background-color: #ffffff !important;
+  color:rgb(11, 0, 41) !important;
+  font-family:  "Montserrat", sans-serif;
 }
 
 .nav-college-text {
   display: inline-block;
   vertical-align: middle;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
+  color: #000000;
+  font-weight: 400px;
+  font-size: 15px;
   margin-left: 10px;
   line-height: 1.1;
 }
@@ -144,13 +146,16 @@ footer.footer{
   width: 100%;
   height: 100vh;      /* full screen height header */
   overflow: hidden;
+  background-image: linear-gradient( rgb(0, 3, 39));
 }
 
 .header-img {
+   
   width: 100%;
   height: 100%;
   object-fit: cover;  /* keeps image proportional */
-  opacity: 0.5;
+  opacity: 0.7;
+
 }
 
 .header-overlay {
@@ -167,12 +172,15 @@ footer.footer{
   font-weight: bold;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+    font-family:  "Montserrat", sans-serif;
+  
 }
 
 .header-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+    font-family:  "Montserrat", sans-serif;
 }
 
 .header-btn {
@@ -180,18 +188,17 @@ footer.footer{
   padding: 12px 24px;
   font-size: 1.2rem;
   font-weight: bold;
-  border: solid 1px rgba(255, 255, 255, 0.239);
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(9px);
   border-radius: 30px;
-  color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family:  "Montserrat", sans-serif;
 }
 
 .header-btn:hover {
   transform: scale(1.08);
-  box-shadow: 0px 4px 20px rgba(168, 192, 255, 0.6);
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.6);
 }
 
 .media-icon{
@@ -209,6 +216,7 @@ footer.footer{
     padding: 5rem 9%;
     margin-top: 1rem;
     position: relative;
+     font-family:  "Montserrat", sans-serif;
 }
 .counter-wrapper::before{
     position: absolute;
@@ -218,12 +226,12 @@ footer.footer{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgb(11, 0, 41);
     z-index: 1;
 }
 .counter{
    text-align: center;   
-   color: #ddd;
+   color: #ffffff;
    z-index: 2;
    position: relative;
 }
@@ -247,12 +255,12 @@ footer.footer{
     -o-transform: translateX(-50%);
 }
 .counter .count{
-    font-size: 5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;    
 }
 .counter p{
     font-size: 1.4rem;
-    font-family: 'Poppins', sans-serif;
+     font-family:  "Montserrat", sans-serif;
     font-weight: 700;
 }
 
@@ -262,35 +270,45 @@ footer.footer{
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
-  margin-top: 40px;
+  margin-top: 60px;
   flex-wrap: wrap;
   text-align: center;
+   font-family:  "Montserrat", sans-serif;
 }
 
 .vision-mission-overlay h2 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #fff; /* white text for header overlay */
+  color: rgb(11, 0, 41); /* white text for header overlay */
 }
 
 .vision-mission-overlay p {
   max-width: 350px;
   font-size: 1rem;
   line-height: 1.6;
-  color: #f1f1f1;
+  color: rgb(11, 0, 41);
 }
 
 .vision-mission-overlay .divider {
   width: 2px;
-  background: rgba(255, 255, 255, 0.6);
+  background:rgb(11, 0, 41);
   height: 13rem;
   min-height: 100px;
 }
 
+.hr{
+   width: 80%; /* Optional: Set a specific width for the HR */
+  margin: 0 auto;
+  color: #929292;
+  margin-top: 50px;
+}
 /* --- Custom Carousel/News Section Styles (Final Alignment Fix) --- */
 
 .latest-news-section {
-background-color: #1a1a1a; /* Dark background for contrast */
+background-color: #ffffff; 
+padding-top: 20px;
+padding-bottom: 20px;
+   font-family:  "Montserrat", sans-serif;/* Dark background for contrast */
 }
 
 /* Custom navigation button styling (reusing Bootstrap icons for a consistent look) */
@@ -390,7 +408,7 @@ margin: auto;
 /* Style arrows nicely */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-background-color: rgba(0,0,0,0.3);
+background-color:  rgb(11, 0, 41);
 border-radius: 50%;
 width: 30px;
 height: 30px;
@@ -415,4 +433,18 @@ width: 100%; /* Use full width on mobile */
 .carousel-container-wrapper button {
 display: none; /* Hide buttons on small screens, users can swipe */
 }
+}
+
+.news-text{
+  color:  rgb(11, 0, 41);
+}
+.more-news{
+  color: rgb(11, 0, 41) !important;
+  background-color: #fff !important;
+  border: solid 2px rgb(11, 0, 41) !important;
+}
+.more-news:hover{
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(11, 0, 41) !important;
+  border: solid 2px rgb(255, 255, 255) !important;
 }
