@@ -434,7 +434,10 @@ width: 100%; /* Use full width on mobile */
 display: none; /* Hide buttons on small screens, users can swipe */
 }
 }
-
+ .btn-primary{
+  --bs-btn-bg:rgb(11, 0, 41) !important;
+  --bs-btn-border-color: rgb(11, 0, 41) !important;
+}
 .news-text{
   color:  rgb(11, 0, 41);
 }
@@ -447,4 +450,10 @@ display: none; /* Hide buttons on small screens, users can swipe */
   color: rgb(255, 255, 255) !important;
   background-color: rgb(11, 0, 41) !important;
   border: solid 2px rgb(255, 255, 255) !important;
+}
+.news-card-wrapper{
+   width:auto;      /* Allows internal alignment */
+      height:auto;
+      overflow-wrap:anywhere; 
+  word-break: break-all;
 }
