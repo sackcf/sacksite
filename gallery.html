@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Gallery</title>
-    <link rel="stylesheet" href="assets/css/gallery.css">
 
       <!-- keep same CSS as index for navbar/footer styling -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -45,9 +44,20 @@
 </section>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-    <img id="lightbox-img">
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#10094;</button>
+
+  <div class="lb-stage">
+    <img id="lightbox-img" alt="">
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#10095;</button>
 </div>
+
 
 <script src="assets/js/gallery.js"></script>
 

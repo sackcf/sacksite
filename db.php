@@ -1,8 +1,11 @@
 <?php
-$servername = "localhost";   // your server
-$username   = "root";        // your MySQL username
-$password   = "";            // your MySQL password
-$dbname     = "sacksite";    // database name
+// Load environment variables
+$env = parse_ini_file(__DIR__ . '/.env');
+
+$servername = $env['DB_SERVER'] ?? 'localhost';
+$username   = $env['DB_USERNAME'] ?? 'root';
+$password   = $env['DB_PASSWORD'] ?? '';
+$dbname     = $env['DB_NAME'] ?? 'sacksite';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
