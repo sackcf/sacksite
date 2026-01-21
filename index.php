@@ -173,11 +173,12 @@
         </div>
 </div>
   <div class="header">
-    <img class="header-img" src="assets/img/img-up-2.png" alt="">
+    <img class="header-img" src="assets/img/sackbg.jpg" alt="">
   <div class="header-overlay">
     <h2 class="header-title text-uppercase">St. Anthony's College Kandy</h2>
     <p class="header-subtitle">Since 1854</p>
     <a href="history.html" class="header-btn">Our History</a>
+    <a href="gallery.html" class="header-btn">&nbsp&nbsp Gallery &nbsp&nbsp</a>
   </div>
   </div>
    <!-- Vision & Mission inside header -->

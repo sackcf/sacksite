@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="assets/css/gallery.css">
+
+      <!-- keep same CSS as index for navbar/footer styling -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+
+  <!-- if you use bootstrap classes in nav/footer, include bootstrap CSS too -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+        crossorigin="anonymous">
+</head>
+<body>
+
+    <!--navbar starts here-->
+  <div id="nav-placeholder">
+  </div>
+  <!--navbar ends here-->
+ 
+<section class="gallery-section">
+    <h1 class="gallery-title">Gallery</h1>
+
+    <div class="gallery-grid">
+        <!-- Image block -->
+        <div class="gallery-item">
+            <img src="assets/img/gallery/Red-Brick.jpg" alt="Gallery Image">
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/img/gallery/R_P_Jansz.jpeg" alt="Gallery Image">
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/img/gallery/history_3_Rohan-Wijesinghe.jpg" alt="Gallery Image">
+        </div>
+
+        <div class="gallery-item">
+            <img src="assets/img/gallery/img4.jpg" alt="Gallery Image">
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img">
+</div>
+
+<script src="assets/js/gallery.js"></script>
+
+<!-- Footer -->
+<footer id="footer-placeholder" class="text-center text-lg-start bg-body-tertiary text-muted footer">
+  
+</footer>
+<!-- Footer -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+    integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
